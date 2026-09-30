@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/player/nova.gd" id="1_nova"]
+[ext_resource type="Texture2D" path="res://sprites/fx/particle_star.png" id="2_star"]
+
+[sub_resource type="Gradient" id="Gradient_fade"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Curve" id="Curve_shrink"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="Nova" type="Node2D"]
+z_index = 5
+script = ExtResource("1_nova")
+
+[node name="Ring" type="CPUParticles2D" parent="."]
+emitting = true
+amount = 40
+lifetime = 0.55
+one_shot = true
+explosiveness = 1.0
+texture = ExtResource("2_star")
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 170.0
+initial_velocity_max = 170.0
+damping_min = 260.0
+damping_max = 260.0
+angular_velocity_min = -200.0
+angular_velocity_max = 200.0
+scale_amount_min = 1.2
+scale_amount_max = 1.8
+scale_amount_curve = SubResource("Curve_shrink")
+color = Color(0.5, 0.8, 1, 1)
+color_ramp = SubResource("Gradient_fade")
+
+[node name="Core" type="CPUParticles2D" parent="."]
+emitting = true
+amount = 14
+lifetime = 0.35
+one_shot = true
+explosiveness = 1.0
+texture = ExtResource("2_star")
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 30.0
+initial_velocity_max = 70.0
+damping_min = 80.0
+damping_max = 100.0
+angular_velocity_min = -300.0
+angular_velocity_max = 300.0
+scale_amount_min = 1.5
+scale_amount_max = 2.5
+scale_amount_curve = SubResource("Curve_shrink")
+color = Color(0.9, 0.97, 1, 1)
+color_ramp = SubResource("Gradient_fade")

@@ -1,0 +1,61 @@
+[gd_scene load_steps=8 format=3]
+
+[ext_resource type="Script" path="res://scripts/player/spell_bolt.gd" id="1_bullet"]
+[ext_resource type="Texture2D" path="res://sprites/2 - Lil Wiz/Sparkles_(8 x 8).png" id="2_sparkles"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bullet"]
+size = Vector2(6, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_spark0"]
+atlas = ExtResource("2_sparkles")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_spark1"]
+atlas = ExtResource("2_sparkles")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_spark2"]
+atlas = ExtResource("2_sparkles")
+region = Rect2(16, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_spark3"]
+atlas = ExtResource("2_sparkles")
+region = Rect2(24, 0, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bullet"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_spark0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_spark1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_spark2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_spark3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 14.0
+}]
+
+[node name="SpellBolt" type="Area2D"]
+collision_layer = 0
+collision_mask = 5
+script = ExtResource("1_bullet")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_bullet")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1.6, 1.6)
+sprite_frames = SubResource("SpriteFrames_bullet")
+animation = &"default"
+autoplay = "default"
+modulate = Color(0.6, 0.75, 1, 1)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

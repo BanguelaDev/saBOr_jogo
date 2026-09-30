@@ -1,0 +1,35 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" uid="uid://d352ld83fof83" path="res://scripts/world/hit_effect.gd" id="1_fx"]
+[ext_resource type="Texture2D" uid="uid://dtpm31xchbqy7" path="res://sprites/fx/particle_star.png" id="2_star"]
+
+[sub_resource type="Gradient" id="Gradient_fade"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Curve" id="Curve_shrink"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="HitEffect" type="CPUParticles2D"]
+z_index = 5
+emitting = true
+amount = 10
+lifetime = 0.45
+one_shot = true
+explosiveness = 1.0
+texture = ExtResource("2_star")
+direction = Vector2(0, -1)
+spread = 180.0
+gravity = Vector2(0, 120)
+initial_velocity_min = 50.0
+initial_velocity_max = 100.0
+damping_min = 60.0
+damping_max = 90.0
+angular_velocity_min = -180.0
+angular_velocity_max = 180.0
+scale_amount_min = 0.7
+scale_amount_max = 1.3
+scale_amount_curve = SubResource("Curve_shrink")
+color = Color(1, 0.9, 0.5, 1)
+color_ramp = SubResource("Gradient_fade")
+script = ExtResource("1_fx")

@@ -1,0 +1,222 @@
+[gd_scene format=3 uid="uid://bmy55mnm3njc1"]
+
+[ext_resource type="Texture2D" uid="uid://3ooy6lbs2tbs" path="res://sprites/Seasonal Tilesets/1 - Grassland/Background parts/_Complete_static_BG_(288 x 208).png" id="bg"]
+[ext_resource type="FontFile" uid="uid://dumj16tqn61bd" path="res://fonts/fredoka.woff2" id="fredoka"]
+[ext_resource type="Script" uid="uid://fm5vct47nuqk" path="res://scripts/ui/menu.gd" id="main"]
+[ext_resource type="Script" uid="uid://biiok877eltc5" path="res://scripts/ui/spin.gd" id="spin"]
+[ext_resource type="Texture2D" uid="uid://brk4hr134b0xw" path="res://sprites/ui/menu/sunburst.png" id="sun"]
+[ext_resource type="FontFile" uid="uid://cv5uglhu8hhts" path="res://fonts/fredoka_bold.woff2" id="title"]
+[ext_resource type="Texture2D" uid="uid://cfnylws3uf7e0" path="res://sprites/2 - Lil Wiz/Idle_(32 x 32).png" id="wiz"]
+[ext_resource type="Script" uid="uid://b3v66v28ywjjq" path="res://scripts/ui/wobble.gd" id="wobble"]
+
+[sub_resource type="AtlasTexture" id="w0"]
+atlas = ExtResource("wiz")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="w1"]
+atlas = ExtResource("wiz")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="w2"]
+atlas = ExtResource("wiz")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="w3"]
+atlas = ExtResource("wiz")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="w4"]
+atlas = ExtResource("wiz")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="sf_wiz"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("w0")
+}, {
+"duration": 1.0,
+"texture": SubResource("w1")
+}, {
+"duration": 1.0,
+"texture": SubResource("w2")
+}, {
+"duration": 1.0,
+"texture": SubResource("w3")
+}, {
+"duration": 1.0,
+"texture": SubResource("w4")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wd6lm"]
+load_path = "res://.godot/imported/hand_sabor.png-cfe6e65b42f4f9beb24bc50a74d5a381.ctex"
+
+[sub_resource type="StyleBoxFlat" id="panel_cream"]
+content_margin_left = 8.0
+content_margin_top = 6.0
+content_margin_right = 8.0
+content_margin_bottom = 6.0
+bg_color = Color(1, 0.96, 0.78, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.23, 0.14, 0.08, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+shadow_color = Color(0, 0, 0, 0.35)
+shadow_size = 1
+shadow_offset = Vector2(2, 3)
+
+[sub_resource type="StyleBoxFlat" id="panel_orange"]
+content_margin_left = 6.0
+content_margin_top = 0.0
+content_margin_right = 6.0
+content_margin_bottom = 0.0
+bg_color = Color(1, 0.55, 0.2, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.23, 0.14, 0.08, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="Menu" type="Control" unique_id=504203195]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("main")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1869413912]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("bg")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Sunburst" type="TextureRect" parent="." unique_id=253964263]
+modulate = Color(1, 1, 1, 0.55)
+texture_filter = 2
+layout_mode = 0
+offset_left = -50.0
+offset_top = -100.0
+offset_right = 350.0
+offset_bottom = 300.0
+pivot_offset = Vector2(200, 200)
+texture = ExtResource("sun")
+expand_mode = 1
+
+[node name="Spin" type="Node" parent="Sunburst" unique_id=145693265]
+script = ExtResource("spin")
+
+[node name="Wizard" type="AnimatedSprite2D" parent="." unique_id=1466080562]
+position = Vector2(39, 78.00001)
+scale = Vector2(2.5, 2.5)
+sprite_frames = SubResource("sf_wiz")
+autoplay = "default"
+
+[node name="Title" type="Label" parent="." unique_id=853308114]
+layout_mode = 0
+offset_top = 8.0
+offset_right = 300.0
+offset_bottom = 50.0
+pivot_offset = Vector2(150, 21)
+theme_override_colors/font_color = Color(1, 0.85, 0.2, 1)
+theme_override_colors/font_outline_color = Color(0.23, 0.14, 0.08, 1)
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("title")
+theme_override_font_sizes/font_size = 32
+text = "        jogo"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Wobble" type="Node" parent="Title" unique_id=878995544]
+script = ExtResource("wobble")
+time = 0.7
+
+[node name="Hand" type="TextureRect" parent="." unique_id=1733480508]
+texture_filter = 2
+layout_mode = 0
+offset_left = 90.0
+offset_top = 3.0
+offset_right = 144.0
+offset_bottom = 57.0
+pivot_offset = Vector2(27, 27)
+texture = SubResource("CompressedTexture2D_wd6lm")
+expand_mode = 1
+
+[node name="Wobble" type="Node" parent="Hand" unique_id=1472236782]
+script = ExtResource("wobble")
+time = 0.35
+
+[node name="Start" type="Label" parent="." unique_id=1397792460]
+layout_mode = 0
+offset_top = 60.0
+offset_right = 300.0
+offset_bottom = 86.0
+pivot_offset = Vector2(150, 13)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.23, 0.14, 0.08, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("title")
+theme_override_font_sizes/font_size = 15
+text = "Pressione ENTER para jogar"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Wobble" type="Node" parent="Start" unique_id=1519169574]
+script = ExtResource("wobble")
+time = 0.4
+
+[node name="ControlsPanel" type="PanelContainer" parent="." unique_id=1652905759]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 116.0
+offset_right = 288.0
+offset_bottom = 164.0
+theme_override_styles/panel = SubResource("panel_cream")
+
+[node name="Controls" type="Label" parent="ControlsPanel" unique_id=603436494]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.23, 0.14, 0.08, 1)
+theme_override_fonts/font = ExtResource("fredoka")
+theme_override_font_sizes/font_size = 8
+text = "A / D: mover    W ou Espaço: pular (pulo duplo)    S: abaixar
+J ou M1: magia    G ou M2: especial"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ControlsTag" type="PanelContainer" parent="." unique_id=1183523135]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 106.0
+offset_right = 196.0
+offset_bottom = 124.0
+theme_override_styles/panel = SubResource("panel_orange")
+
+[node name="Label" type="Label" parent="ControlsTag" unique_id=136708689]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.23, 0.14, 0.08, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("title")
+theme_override_font_sizes/font_size = 11
+text = "CONTROLES"
+horizontal_alignment = 1
+vertical_alignment = 1

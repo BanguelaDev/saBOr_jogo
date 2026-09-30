@@ -1,0 +1,397 @@
+[gd_scene format=3 uid="uid://b4uyanguafauh"]
+
+[ext_resource type="Script" uid="uid://bd7qm8bs4spr0" path="res://scripts/player/player.gd" id="1_player_script"]
+[ext_resource type="Texture2D" uid="uid://dg2f5imk53vqx" path="res://sprites/2 - Lil Wiz/Casting_Spell_(32 x 32).png" id="tex_casting_spell"]
+[ext_resource type="Texture2D" uid="uid://ba5rj7swufdup" path="res://sprites/2 - Lil Wiz/Casting_Spell_Aerial_(32 x 32).png" id="tex_casting_spell_aerial"]
+[ext_resource type="Texture2D" uid="uid://drbecu3chkdmh" path="res://sprites/2 - Lil Wiz/Casting_Spell_Repeating_(32 x 32).png" id="tex_casting_spell_repeating"]
+[ext_resource type="Texture2D" uid="uid://6dyd3mq5emla" path="res://sprites/2 - Lil Wiz/Ducking_(32 x 32).png" id="tex_ducking"]
+[ext_resource type="Texture2D" uid="uid://d2r7b4nu3ieek" path="res://sprites/2 - Lil Wiz/Falling_(32 x 32).png" id="tex_falling"]
+[ext_resource type="Texture2D" uid="uid://dmxrx4khq213b" path="res://sprites/2 - Lil Wiz/Ground_Recovery_(32 x 32).png" id="tex_ground_recovery"]
+[ext_resource type="Texture2D" uid="uid://07d4x8gpyj4j" path="res://sprites/2 - Lil Wiz/Hurt_(32 x 32).png" id="tex_hurt"]
+[ext_resource type="Texture2D" uid="uid://cfnylws3uf7e0" path="res://sprites/2 - Lil Wiz/Idle_(32 x 32).png" id="tex_idle"]
+[ext_resource type="Texture2D" uid="uid://cbybm77fkomdb" path="res://sprites/2 - Lil Wiz/Jumping_(32 x 32).png" id="tex_jumping"]
+[ext_resource type="Texture2D" uid="uid://da86477dq2of7" path="res://sprites/2 - Lil Wiz/Magical_Orbs_Spell_(32 x 32).png" id="tex_magical_orbs_spell"]
+[ext_resource type="Texture2D" uid="uid://cdfcwuhbfgq86" path="res://sprites/2 - Lil Wiz/Running_(32 x 32).png" id="tex_running"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u3f3p"]
+radius = 6.0
+height = 16.0
+
+[sub_resource type="AtlasTexture" id="atlas_casting_spell_0"]
+atlas = ExtResource("tex_casting_spell")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="atlas_casting_spell_1"]
+atlas = ExtResource("tex_casting_spell")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="atlas_casting_spell_2"]
+atlas = ExtResource("tex_casting_spell")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="atlas_casting_spell_3"]
+atlas = ExtResource("tex_casting_spell")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="atlas_casting_spell_aerial_0"]
+atlas = ExtResource("tex_casting_spell_aerial")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="atlas_casting_spell_aerial_1"]
+atlas = ExtResource("tex_casting_spell_aerial")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="atlas_casting_spell_aerial_2"]
+atlas = ExtResource("tex_casting_spell_aerial")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="atlas_casting_spell_aerial_3"]
+atlas = ExtResource("tex_casting_spell_aerial")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="atlas_casting_spell_repeating_0"]
+atlas = ExtResource("tex_casting_spell_repeating")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="atlas_casting_spell_repeating_1"]
+atlas = ExtResource("tex_casting_spell_repeating")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="atlas_casting_spell_repeating_2"]
+atlas = ExtResource("tex_casting_spell_repeating")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="atlas_casting_spell_repeating_3"]
+atlas = ExtResource("tex_casting_spell_repeating")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="atlas_ducking_0"]
+atlas = ExtResource("tex_ducking")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="atlas_falling_0"]
+atlas = ExtResource("tex_falling")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="atlas_falling_1"]
+atlas = ExtResource("tex_falling")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="atlas_ground_recovery_0"]
+atlas = ExtResource("tex_ground_recovery")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="atlas_ground_recovery_1"]
+atlas = ExtResource("tex_ground_recovery")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="atlas_ground_recovery_2"]
+atlas = ExtResource("tex_ground_recovery")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="atlas_hurt_0"]
+atlas = ExtResource("tex_hurt")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="atlas_hurt_1"]
+atlas = ExtResource("tex_hurt")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="atlas_idle_0"]
+atlas = ExtResource("tex_idle")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="atlas_idle_1"]
+atlas = ExtResource("tex_idle")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="atlas_idle_2"]
+atlas = ExtResource("tex_idle")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="atlas_idle_3"]
+atlas = ExtResource("tex_idle")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="atlas_idle_4"]
+atlas = ExtResource("tex_idle")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="atlas_jumping_0"]
+atlas = ExtResource("tex_jumping")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="atlas_magical_orbs_spell_0"]
+atlas = ExtResource("tex_magical_orbs_spell")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="atlas_magical_orbs_spell_1"]
+atlas = ExtResource("tex_magical_orbs_spell")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="atlas_magical_orbs_spell_2"]
+atlas = ExtResource("tex_magical_orbs_spell")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="atlas_magical_orbs_spell_3"]
+atlas = ExtResource("tex_magical_orbs_spell")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="atlas_running_0"]
+atlas = ExtResource("tex_running")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="atlas_running_1"]
+atlas = ExtResource("tex_running")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="atlas_running_2"]
+atlas = ExtResource("tex_running")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="atlas_running_3"]
+atlas = ExtResource("tex_running")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="atlas_running_4"]
+atlas = ExtResource("tex_running")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="atlas_running_5"]
+atlas = ExtResource("tex_running")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wiz"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("atlas_casting_spell_0")
+}, {
+"duration": 1.0,
+"texture": SubResource("atlas_casting_spell_1")
+}, {
+"duration": 1.0,
+"texture": SubResource("atlas_casting_spell_2")
+}, {
+"duration": 1.0,
+"texture": SubResource("atlas_casting_spell_3")
+}],
+"loop": 0,
+"name": &"casting_spell",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("atlas_casting_spell_aerial_0")
+}, {
+"duration": 1.0,
+"texture": SubResource("atlas_casting_spell_aerial_1")
+}, {
+"duration": 1.0,
+"texture": SubResource("atlas_casting_spell_aerial_2")
+}, {
+"duration": 1.0,
+"texture": SubResource("atlas_casting_spell_aerial_3")
+}],
+"loop": 0,
+"name": &"casting_spell_aerial",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("atlas_casting_spell_repeating_0")
+}, {
+"duration": 1.0,
+"texture": SubResource("atlas_casting_spell_repeating_1")
+}, {
+"duration": 1.0,
+"texture": SubResource("atlas_casting_spell_repeating_2")
+}, {
+"duration": 1.0,
+"texture": SubResource("atlas_casting_spell_repeating_3")
+}],
+"loop": 1,
+"name": &"casting_spell_repeating",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("atlas_ducking_0")
+}],
+"loop": 1,
+"name": &"duck",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("atlas_falling_0")
+}, {
+"duration": 1.0,
+"texture": SubResource("atlas_falling_1")
+}],
+"loop": 1,
+"name": &"fall",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("atlas_ground_recovery_0")
+}, {
+"duration": 1.0,
+"texture": SubResource("atlas_ground_recovery_1")
+}, {
+"duration": 1.0,
+"texture": SubResource("atlas_ground_recovery_2")
+}],
+"loop": 0,
+"name": &"ground_recovery",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("atlas_hurt_0")
+}, {
+"duration": 1.0,
+"texture": SubResource("atlas_hurt_1")
+}],
+"loop": 0,
+"name": &"hurt",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("atlas_idle_0")
+}, {
+"duration": 1.0,
+"texture": SubResource("atlas_idle_1")
+}, {
+"duration": 1.0,
+"texture": SubResource("atlas_idle_2")
+}, {
+"duration": 1.0,
+"texture": SubResource("atlas_idle_3")
+}, {
+"duration": 1.0,
+"texture": SubResource("atlas_idle_4")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("atlas_jumping_0")
+}],
+"loop": 1,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("atlas_magical_orbs_spell_0")
+}, {
+"duration": 1.0,
+"texture": SubResource("atlas_magical_orbs_spell_1")
+}, {
+"duration": 1.0,
+"texture": SubResource("atlas_magical_orbs_spell_2")
+}, {
+"duration": 1.0,
+"texture": SubResource("atlas_magical_orbs_spell_3")
+}],
+"loop": 0,
+"name": &"magical_orbs_spell",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("atlas_running_0")
+}, {
+"duration": 1.0,
+"texture": SubResource("atlas_running_1")
+}, {
+"duration": 1.0,
+"texture": SubResource("atlas_running_2")
+}, {
+"duration": 1.0,
+"texture": SubResource("atlas_running_3")
+}, {
+"duration": 1.0,
+"texture": SubResource("atlas_running_4")
+}, {
+"duration": 1.0,
+"texture": SubResource("atlas_running_5")
+}],
+"loop": 1,
+"name": &"run",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("atlas_ducking_0")
+}],
+"loop": 1,
+"name": &"slide",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("atlas_idle_0")
+}, {
+"duration": 1.0,
+"texture": SubResource("atlas_idle_1")
+}, {
+"duration": 1.0,
+"texture": SubResource("atlas_idle_2")
+}, {
+"duration": 1.0,
+"texture": SubResource("atlas_idle_3")
+}, {
+"duration": 1.0,
+"texture": SubResource("atlas_idle_4")
+}],
+"loop": 1,
+"name": &"swimming",
+"speed": 6.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6nm46"]
+size = Vector2(12, 15)
+
+[node name="Player" type="CharacterBody2D" unique_id=614602431 groups=["Player"]]
+collision_layer = 2
+collision_mask = 9
+script = ExtResource("1_player_script")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1829115916]
+visible = false
+z_index = 2
+shape = SubResource("CapsuleShape2D_u3f3p")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1957516937]
+z_index = 1
+position = Vector2(-2.87e-42, 9)
+scale = Vector2(0.96875, 0.96875)
+sprite_frames = SubResource("SpriteFrames_wiz")
+animation = &"fall"
+offset = Vector2(0, -16)
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=412129304]
+visible = false
+z_index = 10
+collision_layer = 2
+collision_mask = 52
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=632568703]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_6nm46")
+debug_color = Color(0.95774, 0, 0.53094, 0.42)
+
+[node name="ReloadTimer" type="Timer" parent="." unique_id=2091739159]
+one_shot = true
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="body_exited" from="Hitbox" to="." method="_on_hitbox_body_exited"]
+[connection signal="timeout" from="ReloadTimer" to="." method="_on_reload_timer_timeout"]
